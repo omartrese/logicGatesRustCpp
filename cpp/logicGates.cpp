@@ -39,12 +39,9 @@ bool andGate(bool one, bool two)
   } else return false;
 }
 
-bool notGate(bool number)
+bool notGate(bool gate)
 {
-  if(number == 1)
-  {
-    return false;
-  } else return true;
+  return gate ? false : true;
 }
 
 bool nandGate(bool one, bool two)
