@@ -33,7 +33,7 @@ bool gateInput(int gate)
 
 bool andGate(bool one, bool two)
 {
-  return one && two ? true : false;
+  return one && two;
 }
 
 bool notGate(bool gate)
