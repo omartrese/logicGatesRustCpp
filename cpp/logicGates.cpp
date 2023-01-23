@@ -53,7 +53,7 @@ bool orGate(bool one, bool two)
 
 bool norGate(bool one, bool two)
 {
-  return orGate(one, two) ? false : true;
+  return notGate(orGate(one, two));
 } 
 
 bool xorGate(bool one, bool two)
