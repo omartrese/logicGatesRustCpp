@@ -38,7 +38,7 @@ bool andGate(bool one, bool two)
 
 bool notGate(bool gate)
 {
-  return gate ? false : true;
+  return !gate;
 }
 
 bool nandGate(bool one, bool two)
