@@ -12,41 +12,60 @@ void jumpLine(int numberLines)
   }
 }
 
-int andGate(int one, int two)
+bool gateInput(int gate)
 {
-  if(one == 1 && two == 1)
+  switch(gate)
   {
-    return 1;
-  } else return 0;
+    case 0: 
+      return false;
+      break;
+
+    case 1:
+      return true;
+      break;
+
+    default:
+      return false;
+      
+  }
+
 }
 
-int notGate(int number)
+bool andGate(bool one, bool two)
+{
+  if(one && two)
+  {
+    return true;
+  } else return false;
+}
+
+bool notGate(bool number)
 {
   if(number == 1)
   {
-    return 0;
-  } else return 1;
+    return false;
+  } else return true;
 }
 
-int nandGate(int one, int two)
+bool nandGate(bool one, bool two)
 {
   return notGate(andGate(one, two));
 }
 
-int orGate(int one, int two)
+bool orGate(bool one, bool two)
 {
   return nandGate(notGate(one), notGate(two));
 }
 
-int norGate(int one, int two)
+bool norGate(bool one, bool two)
 {
-  if(orGate(one, two) == 1)
+  if(orGate(one, two))
   {
-    return 0;
-  } else return 1;
+    return false;
+  } else return true;
 } 
 
-int xorGate(int one, int two)
+bool xorGate(bool one, bool two)
 {
   return andGate(orGate(one, two), nandGate(one, two));
 }
@@ -54,45 +73,24 @@ int xorGate(int one, int two)
 int main()
 {
 
-  int oneGate, twoGate;
+  bool oneGate, twoGate;
+  int gates;
 
-  cout << "INSERT ONE BOOLEAN (1 or 0): ";
 
-  cin >> oneGate;
+  cout << "INSERT FIRST BOOLEAN (0 or 1): ";
 
-  if(!isdigit(oneGate))
-  {
-    if(oneGate > 1 || oneGate < 0)
-    {
-      cout << "OneGate must be 0 or 1" << endl;
-      jumpLine(3);
-      exit(1);
-    }
-  } else 
-  {
-    cout << "OneGate must be a number" << endl;
-    jumpLine(3);
-    exit(1);
-  }
+  cin >> gates;
 
-  cout << "INSERT ANOTHER BOOLEAN (1 or 0): ";
+  oneGate = gateInput(gates);
+
+  cout << "INSERT ANOTHER BOOLEAN (0 or 1): ";
   
-  cin >> twoGate;
+  cin >> gates;
 
-  if(!isdigit(twoGate))
-  {
-    if(twoGate > 1 || twoGate < 0)
-    {
-      cout << "TwoGate must be 0 or 1" << endl;
-      jumpLine(3);
-      exit(1);
-    }
-  } else 
-  {
-    cout << "TwoGate must be a number" << endl;
-    jumpLine(3);
-    exit(1);
-  }
+  twoGate = gateInput(gates);
+
+
+
 
   jumpLine(1);
   
