@@ -33,10 +33,7 @@ bool gateInput(int gate)
 
 bool andGate(bool one, bool two)
 {
-  if(one && two)
-  {
-    return true;
-  } else return false;
+  return one && two ? true : false;
 }
 
 bool notGate(bool gate)
@@ -56,10 +53,7 @@ bool orGate(bool one, bool two)
 
 bool norGate(bool one, bool two)
 {
-  if(orGate(one, two))
-  {
-    return false;
-  } else return true;
+  return orGate(one, two) ? false : true;
 } 
 
 bool xorGate(bool one, bool two)
@@ -86,9 +80,6 @@ int main()
 
   twoGate = gateInput(gates);
 
-
-
-
   jumpLine(1);
   
   cout << "AND GATE: " << andGate(oneGate, twoGate) << endl;
@@ -105,5 +96,3 @@ int main()
   return 0;
 
 }
-
-
